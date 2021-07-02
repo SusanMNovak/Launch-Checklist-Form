@@ -25,24 +25,24 @@ window.addEventListener("load", function() {
       event.preventDefault();
       //DOM elements
       let pilotName = document.querySelector("input[name = pilotName]");
-      let coPilotName = document.querySelector("input[name = coPilotName]");
+      let copilotName = document.querySelector("input[name = copilotName]");
       let fuelLevel = document.querySelector("input[name = fuelLevel]");
       let cargoMass = document.querySelector("input[name = cargoMass]");
       let faultyItems = document.getElementById('faultyItems');
       let fuelStatus = document.getElementById('fuelStatus');
       let launchStatus = document.getElementById('launchStatus');
       let pilotStatus = document.getElementById('pilotStatus');
-      let coPilotStatus = document.getElementById('coPilotStatus');
+      let copilotStatus = document.getElementById('copilotStatus');
 
       //check form element values
-      if (pilotName.value === "" || coPilotName.value === "" || fuelLevel.value === "" || cargoMass.value === "") {
+      if (pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === "") {
          alert("Fields cannot be empty!");
          return;
       }  
    //Check pilot and coPilot names are strings
    if (isNaN(pilotName.value) || isNaN(coPilotName.value)) {
       pilotStatus.innerHTM = 'Pilot ${pilotName.value} is ready';
-      coPilotStatus.innerHTM = 'C-pilot ${coPilot.value} is ready';
+      copilotStatus.innerHTM = 'Co-pilot ${copilot.value} is ready';
    } else {
       alert('Pilot and Co-pilot are names not numbers!');
       return;
@@ -85,8 +85,7 @@ window.addEventListener("load", function() {
 
   
 
-   
-};
+   };
 
 });
 /* This block of code shows how to format the HTML once you fetch some planetary JSON!
