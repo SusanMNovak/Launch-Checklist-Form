@@ -28,21 +28,18 @@ window.addEventListener("load", function() {
       let copilotName = document.querySelector("input[name = copilotName]");
       let fuelLevel = document.querySelector("input[name = fuelLevel]");
       let cargoMass = document.querySelector("input[name = cargoMass]");
+      let cargoStatus = document.getElementById('cargoStatus');
       let faultyItems = document.getElementById('faultyItems');
       let fuelStatus = document.getElementById('fuelStatus');
       let launchStatus = document.getElementById('launchStatus');
       let pilotStatus = document.getElementById('pilotStatus');
       let copilotStatus = document.getElementById('copilotStatus');
-
-      //check form element values
-      if (pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === "") {
-         alert("Fields cannot be empty!");
          return;
       }  
    //Check pilot and coPilot names are strings
    if (isNaN(pilotName.value) || isNaN(coPilotName.value)) {
-      pilotStatus.innerHTM = 'Pilot ${pilotName.value} is ready';
-      copilotStatus.innerHTM = 'Co-pilot ${copilot.value} is ready';
+      pilotStatus.innerHTML = `Pilot ${pilotName.value} is ready`;
+      copilotStatus.innerHTML = `Co-pilot ${copilotName.value} is ready`;
    } else {
       alert('Pilot and Co-pilot are names not numbers!');
       return;
@@ -50,37 +47,37 @@ window.addEventListener("load", function() {
 
    //Check fuelLevel and cargoMass are valid numbers
    if (isNaN(fuelLevel.value) || isNaN(cargoMass.value)) {
-      alert("Fuel level and cargo mass are integers!");
+      alert("Fuel level and cargo mass must be integers!");
       return;
    }
    // If fuel level and cargo mass are valid, additional checks for fuel level, launch status, cargo mass
    else {
       if (fuelLevel.value < 10000) {
          faultyItems.style.visibility =  'visible';
-         fuelStatus.innerHTM = 'Fuel level too low for trip!';
-         launchStatus.innerHTM = 'Shuttle not launch ready!';
+         fuelStatus.innerHTML = 'Fuel level too low for trip!';
+         launchStatus.innerHTML = 'Shuttle not launch ready!';
          launchStatus.style.color = 'red';
       } else {
          faultyItems.style.visibility = 'visible';
-         fuelStatus.innerHTM = 'Fuel level sufficient for launch!';
+         fuelStatus.innerHTML = 'Fuel level sufficient for launch!';
       }
 
       if(cargoMass.value > 10000) {
          faultyItems.style.visibility = 'visible';
-         cargoMass.innerHTM = 'Cargo too heavy for launch!';
-         launchStatus.innerHTM = 'Shuttle not launch ready!';
+         cargoStatus.innerHTML = 'Cargo too heavy for launch!';
+         launchStatus.innerHTML = 'Shuttle not launch ready!';
          launchStatus.style.color = 'red';
       } else {
          faultyItems.style.visibility = 'visible';
-         cargoMass.innerHTM = 'Cargo mass apprepriate for launch!';
+         cargoStatus.innerHTML = 'Cargo mass apprepriate for launch!';
       }
 
       if(fuelLevel.value >= 10000 && cargoMass.value <= 10000) {
          faultyItems.style.visibility = 'visible';
-         launchStatus.innerHTM = 'Shuttle is launch ready!';
+         launchStatus.innerHTML = 'Shuttle is launch ready!';
          launchStatus.style.color = 'green'; 
-         fuelStatus.innerHTM = 'Fuel level appropriate for launch!'
-         cargoMass.innerHTM = 'Cargo mass appropriate for launch!';
+         fuelStatus.innerHTML = 'Fuel level appropriate for launch!'
+         cargoMass.innerHTML = 'Cargo mass appropriate for launch!';
       }
 
   
