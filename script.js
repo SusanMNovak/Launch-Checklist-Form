@@ -34,10 +34,13 @@ window.addEventListener("load", function() {
       let launchStatus = document.getElementById('launchStatus');
       let pilotStatus = document.getElementById('pilotStatus');
       let copilotStatus = document.getElementById('copilotStatus');
+
+      if (pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === "") {
+         alert("All fields are required!");
          return;
-      }  
+     }
    //Check pilot and coPilot names are strings
-   if (isNaN(pilotName.value) || isNaN(coPilotName.value)) {
+   if (isNaN(pilotName.value) || isNaN(copilotName.value)) {
       pilotStatus.innerHTML = `Pilot ${pilotName.value} is ready`;
       copilotStatus.innerHTML = `Co-pilot ${copilotName.value} is ready`;
    } else {
@@ -50,7 +53,7 @@ window.addEventListener("load", function() {
       alert("Fuel level and cargo mass must be integers!");
       return;
    }
-   // If fuel level and cargo mass are valid, additional checks for fuel level, launch status, cargo mass
+   //If fuel level and cargo mass are valid, additional checks for fuel level, launch status, cargo mass
    else {
       if (fuelLevel.value < 10000) {
          faultyItems.style.visibility =  'visible';
