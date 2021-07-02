@@ -24,9 +24,9 @@ window.addEventListener("load", function() {
    form.addEventListener("submit", function(event) {
       event.preventDefault();
       //DOM elements
-      let pilotName = document.querySelector("input[name = pilotName}");
-      let coPilot = document.querySelector("input[name = coPilot]");
-      let fuelLevel = document.querySelector("input[name = fuelLevel}");
+      let pilotName = document.querySelector("input[name = pilotName]");
+      let coPilotName = document.querySelector("input[name = coPilotName]");
+      let fuelLevel = document.querySelector("input[name = fuelLevel]");
       let cargoMass = document.querySelector("input[name = cargoMass]");
       let faultyItems = document.getElementById('faultyItems');
       let fuelStatus = document.getElementById('fuelStatus');
@@ -35,7 +35,7 @@ window.addEventListener("load", function() {
       let coPilotStatus = document.getElementById('coPilotStatus');
 
       //check form element values
-      if (pilotName.value === ""|| copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === "") {
+      if (pilotName.value === "" || coPilotName.value === "" || fuelLevel.value === "" || cargoMass.value === "") {
          alert("Fields cannot be empty!");
          return;
       }  
